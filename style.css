@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.background {
+  background-image: url('background.jpg'); /* 📸 Ajoute ton image ici */
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7); /* effet foncé */
+  height: 100%;
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+form input, form label, button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+input[type="text"], input[type="file"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.confirmation {
+  text-align: center;
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+}
