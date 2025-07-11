@@ -33,12 +33,46 @@
   </div>
 
   <script>
-    const form = document.getElementById('form');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Ici, tu peux envoyer les données via fetch() ou simplement rediriger :
-      window.location.href = "payement.html";
+  const form = document.getElementById("form");
+  const confirmation = document.getElementById("confirmation");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Récupérer les données du formulaire
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // URL de ton script Google Apps Script (à remplacer par le tien)
+    const scriptURL = "https://script.google.com/macros/s/TON_URL_SCRIPT/exec";
+
+    // Envoi des données vers Google Sheets
+    fetch(scriptURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.result === "success") {
+        confirmation.textContent = "✅ Inscription réussie ! Redirection en cours...";
+        confirmation.style.color = "green";
+
+        // Rediriger vers page de paiement
+        setTimeout(() => {
+          window.location.href = "payement.html";
+        }, 2000);
+      } else {
+        confirmation.textContent = "❌ Une erreur s'est produite.";
+        confirmation.style.color = "red";
+      }
+    })
+    .catch(error => {
+      confirmation.textContent = "❌ Une erreur s'est produite.";
+      confirmation.style.color = "red";
+      console.error("Erreur lors de l'envoi :", error);
     });
-  </script>
+  });
+</script>
 </body>
 </html>
