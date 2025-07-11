@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Petite pause de 1 s pour laisser le temps de lire le message
       setTimeout(() => {
-        window.location.href = payement.html?team=$:{teamName};
+        window.location.href = `payement.html?team=${teamName}`;
       }, 1000);
 
       form.reset();
