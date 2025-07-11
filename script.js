@@ -1,6 +1,6 @@
 // script.js
 const ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbxFxTAUvTAtj369WnkSYWoDYzEqj1NyiEc3DxFspw-3O2ydWR4N4xwdfRRiIXKXBBvBEg/exec";
+  "https://script.google.com/macros/s/AKfycbyXdEoO-8x4qmRJPxWkCjHbSMCt6P_7p00zKByPdcJ7E5ZCkg6d65h6kppgAvgaO7PH/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
