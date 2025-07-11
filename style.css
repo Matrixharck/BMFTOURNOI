@@ -78,6 +78,6 @@ button:hover {
 .confirmation {
   text-align: center;
   margin-top: 15px;
-  color: green;
+  color: rgb(2, 38, 129);
   font-weight: bold;
 }
