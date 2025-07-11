@@ -1,22 +1,46 @@
-document.getElementById('form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = new FormData(e.target);
+// script.js
+const ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbxFxTAUvTAtj369WnkSYWoDYzEqj1NyiEc3DxFspw-3O2ydWR4N4xwdfRRiIXKXBBvBEg/exec";
 
-  const params = new URLSearchParams();
-  for (const [key, value] of form.entries()) {
-    params.append(key, value);
-  }
-
-  const response = await fetch('https://script.google.com/macros/s/AKfycbxFxTAUvTAtj369WnkSYWoDYzEqj1NyiEc3DxFspw-3O2ydWR4N4xwdfRRiIXKXBBvBEg/exec', {
-    method: 'POST',
-    body: params
-  });
-
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("form");
   const confirmation = document.getElementById("confirmation");
-  if (response.ok) {
-    confirmation.textContent = "✅ Inscription envoyée avec succès !";
-    e.target.reset();
-  } else {
-    confirmation.textContent = "❌ Une erreur est survenue. Réessayez.";
-  }
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // UI : on signale à l’utilisateur que l’envoi est en cours
+    confirmation.textContent = "⏳ Envoi en cours…";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Envoi…";
+
+    try {
+      // Préparation des données
+      const data = new FormData(form);
+      const params = new URLSearchParams(data);
+
+      // Appel Apps Script
+      const res = await fetch(ENDPOINT, { method: "POST", body: params });
+
+      if (!res.ok) throw new Error("Network error");
+
+      // Succès : message + redirection
+      confirmation.textContent = "✅ Inscription envoyée avec succès !";
+      const teamName = encodeURIComponent(form.team.value.trim());
+
+      // Petite pause de 1 s pour laisser le temps de lire le message
+      setTimeout(() => {
+        window.location.href = payement.html?team=$:{teamName};
+      }, 1000);
+
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      confirmation.textContent = "❌ Une erreur est survenue. Réessayez.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Envoyer";
+    }
+  });
 });

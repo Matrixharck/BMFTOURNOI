@@ -1,83 +1,95 @@
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body, html {
+body {
   margin: 0;
-  padding: 0;
-  height: 100%;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #0f0f0f, #1f1f1f);
+  color: white;
 }
 
-.background {
-  background-image: url('background.jpg'); /* 📸 Ajoute ton image ici */
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  width: 100%;
-  position: relative;
+.background, .payment-page {
+  background-color: lightslategrey;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.7); /* effet foncé */
-  height: 100%;
-  width: 100%;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 15px;
 }
 
 .container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 94%;
 }
 
 .title {
   text-align: center;
-  color: #333;
-  margin-bottom: 5px;
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 .subtitle {
   text-align: center;
-  color: #666;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
-form input, form label, button {
+form input {
   width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-right: none;
+  outline: none;
+}
+
+button, .btn {
+  display: block;
+  width: 110%;
+  padding: 14px;
+  background-color: #00c853;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
   margin-top: 10px;
 }
 
-input[type="text"], input[type="file"] {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-button {
-  margin-top: 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #218838;
+button:hover, .btn:hover {
+  background-color: #00e676;
 }
 
 .confirmation {
+  margin-top: 10px;
   text-align: center;
-  margin-top: 15px;
-  color: rgb(2, 38, 129);
-  font-weight: bold;
+  color: #00e676;
+}
+
+.payment-img {
+  width: 200px;
+  margin: 20px 0;
+}
+
+.instructions {
+  text-align: center;
+  margin: 10px 0 20px;
+  max-width: 500px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn.whatsapp {
+  background-color: #25D366;
 }
