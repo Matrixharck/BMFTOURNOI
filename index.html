@@ -10,13 +10,20 @@
   <div class="background">
     <div class="overlay">
       <div class="container">
+<<<<<<< HEAD
  <div style="text-align: center;">
   <img src="image/background.jpg" style="width: 200px;">
 </div>"
+=======
+        <div style="text-align: center;">
+          <img src="image/background.jpg" style="width: 200px;">
+        </div>
+>>>>>>> 8fdc7b5 (final)
         <h1 class="title">BMF TOURNOI</h1>
         <p class="subtitle">Formulaire d'inscription au tournoi officiel</p>
 
-        <form id="form">
+        <!-- ✅ Formulaire Getform avec redirection automatique -->
+        <form action="https://getform.io/f/bpjpolgb" method="POST" enctype="multipart/form-data">
           <input type="text" name="team" placeholder="Nom de l’équipe" required />
           <input type="text" name="captain" placeholder="Capitaine" required />
           <input type="email" name="email" placeholder="Email" required />
@@ -27,12 +34,17 @@
           <input type="text" name="member4" placeholder="Membre 4" />
           <input type="text" name="member5" placeholder="Membre 5" />
           <input type="text" name="member6" placeholder="Membre 6" />
+          
+          <!-- ✅ Redirection automatique après soumission réussie -->
+          <input type="hidden" name="_redirect" value="payement.html">
+
           <button type="submit">Envoyer</button>
-          <p id="confirmation" class="confirmation"></p>
         </form>
+
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 
   <script>
   const form = document.getElementById("form");
@@ -76,5 +88,7 @@
     });
   });
 </script>
+=======
+>>>>>>> 8fdc7b5 (final)
 </body>
 </html>
